@@ -1,0 +1,83 @@
+ <div class="home-page">
+
+  <!-- Splash banner that only shows when not logged in -->
+  <div class="banner" show-authed="false">
+    <div class="container">
+      <h1 class="logo-font" ng-bind="::$ctrl.appName | lowercase"></h1>
+      <p>A place to share your knowledge.</p>
+    </div>
+  </div>
+
+  <div class="container page">
+    <div class="row">
+
+
+      <!-- Main view - contains tabs & article list -->
+      <div class="col-md-9">
+        <!-- Tabs for toggling between feed, article lists -->
+        <div class="feed-toggle">
+          <ul class="nav nav-pills outline-active">
+
+            <li class="nav-item" show-authed="true">
+              <a href="" class="nav-link active">
+                Your Feed
+              </a>
+            </li>
+
+            <li class="nav-item">
+              <a href="" class="nav-link">
+                Global Feed
+              </a>
+            </li>
+
+          </ul>
+        </div>
+
+        <!-- List the current articles -->
+        <div class="article-preview">
+          <div class="article-meta">
+            <a href=""><img /></a>
+            <div class="info">
+              <a href="" class="author">BradGreen</a>
+              <span class="date">January 20th</span>
+            </div>
+            <button class="btn btn-outline-primary btn-sm pull-xs-right">
+              <i class="ion-heart"></i> 29
+            </button>
+          </div>
+          <a href="" class="preview-link">
+            <h1>How to build Angular apps that scale</h1>
+            <p>Building web applications is not an easy task. It's even hard to make ones that scale.</p>
+            <span>Read more...</span>
+            <ul class="tag-list">
+              <li class="tag-default tag-pill tag-outline">programming</li>
+              <li class="tag-default tag-pill tag-outline">web</li>
+            </ul>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Sidebar where popular tags are listed -->
+      <div class="col-md-3">
+        <div class="sidebar">
+
+          <p>Popular Tags</p>
+
+          <div class="tag-list">
+            <a href="" class="tag-default tag-pill">
+              Tag One
+            </a>
+            <a href="" class="tag-default tag-pill">
+              Tag Two
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- End the row & container divs -->
+    </div>
+  </div>
+
+</div>
