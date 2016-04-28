@@ -4,6 +4,7 @@ class HomeCtrl {
 
     this.appName = AppConstants.appName;
 
+
   }
 
 
