@@ -6,14 +6,21 @@
       <div class="row">
         <div class="col-xs-12 col-md-10 offset-md-1">
 
-          <img class="user-img" />
-          <h4>BradGreen</h4>
-          <p>I'm the dude running the Angular team at Google, yo.</p>
+          <img ng-src="{{::$ctrl.profile.image}}" class="user-img" />
+          <h4 ng-bind="::$ctrl.profile.username"></h4>
+          <p ng-bind="::$ctrl.profile.bio"></p>
 
-          <button class="btn btn-sm btn-outline-secondary action-btn">
+          <a ui-sref="app.settings"
+            class="btn btn-sm btn-outline-secondary action-btn"
+            ng-show="$ctrl.isUser">
+            <i class="ion-gear-a"></i> Edit Profile Settings
+          </a>
+
+          <button class="btn btn-sm btn-outline-secondary action-btn"
+            ng-hide="$ctrl.isUser">
             <i class="ion-plus-round"></i>
             &nbsp;
-            Follow BradGreen
+            Follow
           </button>
 
         </div>

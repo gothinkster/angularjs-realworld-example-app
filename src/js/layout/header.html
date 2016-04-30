@@ -59,8 +59,17 @@
       <li class="nav-item">
         <a class="nav-link"
           ui-sref-active="active"
-          ui-sref="app.profile">
-          My Profile
+          ui-sref="app.settings">
+          <i class="ion-gear-a"></i>&nbsp;Settings
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"
+          ui-sref-active="active"
+          ui-sref="app.profile({ username: $ctrl.currentUser.username})">
+          <img ng-src="{{$ctrl.currentUser.image}}" class="user-pic" />
+          {{ $ctrl.currentUser.username }}
         </a>
       </li>
 
