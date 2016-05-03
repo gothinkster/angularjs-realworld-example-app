@@ -16,12 +16,7 @@
             <i class="ion-gear-a"></i> Edit Profile Settings
           </a>
 
-          <button class="btn btn-sm btn-outline-secondary action-btn"
-            ng-hide="$ctrl.isUser">
-            <i class="ion-plus-round"></i>
-            &nbsp;
-            Follow
-          </button>
+          <follow-btn user="$ctrl.profile" ng-hide="$ctrl.isUser"></follow-btn>
 
         </div>
       </div>
