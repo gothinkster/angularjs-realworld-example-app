@@ -1,0 +1,19 @@
+<div class="card">
+  <div class="card-block">
+    <p class="card-text" ng-bind="::$ctrl.data.body"></p>
+  </div>
+  <div class="card-footer">
+    <a class="comment-author" ui-sref="app.profile.main({ username: $ctrl.data.author.username })">
+      <img ng-src="{{::$ctrl.data.author.image}}" class="comment-author-img" />
+    </a>
+    &nbsp;
+    <a class="comment-author" ui-sref="app.profile.main({ username: $ctrl.data.author.username })" ng-bind="::$ctrl.data.author.username">
+    </a>
+    <span class="date-posted"
+      ng-bind="::$ctrl.data.createdAt | date: 'longDate'">
+    </span>
+    <span class="mod-options" ng-show="$ctrl.canModify">
+      <i class="ion-trash-a" ng-click="$ctrl.deleteCb()"></i>
+    </span>
+  </div>
+</div>

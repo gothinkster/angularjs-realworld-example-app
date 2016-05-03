@@ -7,7 +7,15 @@ function ArticleConfig($stateProvider) {
     controller: 'ArticleCtrl',
     controllerAs: '$ctrl',
     templateUrl: 'article/article.html',
-    title: 'Article'
+    title: 'Article',
+    resolve: {
+      article: function(Articles, $state, $stateParams) {
+        return Articles.get($stateParams.slug).then(
+          (article) => article,
+          (err) => $state.go('app.home')
+        )
+      }
+    }
   });
 
 };
