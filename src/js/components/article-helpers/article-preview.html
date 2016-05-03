@@ -1,0 +1,21 @@
+<div class="article-preview">
+  <article-meta article="$ctrl.article">
+    <favorite-btn
+      article="$ctrl.article"
+      class="pull-xs-right">
+      {{$ctrl.article.favoritesCount}}
+    </favorite-btn>
+  </article-meta>
+
+  <a ui-sref="app.article({ slug: $ctrl.article.slug })" class="preview-link">
+    <h1 ng-bind="$ctrl.article.title"></h1>
+    <p ng-bind="$ctrl.article.description"></p>
+    <span>Read more...</span>
+    <ul class="tag-list">
+      <li class="tag-default tag-pill tag-outline"
+        ng-repeat="tag in $ctrl.article.tagList">
+        {{tag}}
+      </li>
+    </ul>
+  </a>
+</div>

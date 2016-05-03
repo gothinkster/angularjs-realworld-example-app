@@ -1,0 +1,14 @@
+<nav>
+  <ul class="pagination">
+
+    <li class="page-item"
+      ng-class="{active: pageNumber === $ctrl.currentPage }"
+      ng-repeat="pageNumber in $ctrl.pageRange($ctrl.totalPages)"
+      ng-click="$ctrl.changePage(pageNumber)">
+
+      <a class="page-link" href="">{{ pageNumber }}</a>
+
+    </li>
+
+  </ul>
+</nav>
