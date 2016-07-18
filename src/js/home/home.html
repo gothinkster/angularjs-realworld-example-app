@@ -19,14 +19,24 @@
           <ul class="nav nav-pills outline-active">
 
             <li class="nav-item" show-authed="true">
-              <a href="" class="nav-link active">
+              <a href="" class="nav-link"
+                ng-class="{ active: $ctrl.listConfig.type === 'feed' }"
+                ng-click="$ctrl.changeList({ type: 'feed' })">
                 Your Feed
               </a>
             </li>
 
             <li class="nav-item">
-              <a href="" class="nav-link">
+              <a href="" class="nav-link"
+                ng-class="{ active: $ctrl.listConfig.type === 'all' && !$ctrl.listConfig.filters }"
+                ng-click="$ctrl.changeList({ type: 'all' })">
                 Global Feed
+              </a>
+            </li>
+
+            <li class="nav-item" ng-show="$ctrl.listConfig.filters.tag">
+              <a href="" class="nav-link active">
+                <i class="ion-pound"></i> {{$ctrl.listConfig.filters.tag}}
               </a>
             </li>
 
@@ -34,27 +44,7 @@
         </div>
 
         <!-- List the current articles -->
-        <div class="article-preview">
-          <div class="article-meta">
-            <a href=""><img /></a>
-            <div class="info">
-              <a href="" class="author">BradGreen</a>
-              <span class="date">January 20th</span>
-            </div>
-            <button class="btn btn-outline-primary btn-sm pull-xs-right">
-              <i class="ion-heart"></i> 29
-            </button>
-          </div>
-          <a href="" class="preview-link">
-            <h1>How to build Angular apps that scale</h1>
-            <p>Building web applications is not an easy task. It's even hard to make ones that scale.</p>
-            <span>Read more...</span>
-            <ul class="tag-list">
-              <li class="tag-default tag-pill tag-outline">programming</li>
-              <li class="tag-default tag-pill tag-outline">web</li>
-            </ul>
-          </a>
-        </div>
+        <article-list limit="10" list-config="$ctrl.listConfig"></article-list>
 
       </div>
 
@@ -64,13 +54,21 @@
 
           <p>Popular Tags</p>
 
-          <div class="tag-list">
-            <a href="" class="tag-default tag-pill">
-              Tag One
+          <div class="tag-list" ng-show="$ctrl.tags">
+            <a href="" class="tag-default tag-pill"
+              ng-click="$ctrl.changeList({ type: 'all', filters: { tag: tagName } })"
+              ng-repeat="tagName in $ctrl.tags"
+              ng-bind="tagName">
             </a>
-            <a href="" class="tag-default tag-pill">
-              Tag Two
-            </a>
+          </div>
+
+          <div ng-show="!$ctrl.tagsLoaded">
+            Loading tags...
+          </div>
+
+          <div class="post-preview"
+            ng-show="$ctrl.tagsLoaded && !$ctrl.tags.length">
+            No tags are here... yet.
           </div>
 
         </div>
