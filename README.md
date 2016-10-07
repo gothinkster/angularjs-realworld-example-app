@@ -2,6 +2,8 @@
 
 > Example Angular 1.5+ (ES6 + Components) codebase that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) spec and API.
 
+**[DEMO](https://angularjs.realworld.io)**
+
 # Getting started
 
 1. Clone repo
