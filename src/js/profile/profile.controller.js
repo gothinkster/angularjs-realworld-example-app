@@ -3,7 +3,6 @@ class ProfileCtrl {
     'ngInject';
 
     this.profile = profile;
-    console.log(profile)
 
     if (User.current) {
       console.log(this.profile)
