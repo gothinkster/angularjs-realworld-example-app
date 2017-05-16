@@ -37,10 +37,11 @@ class ArticleListCtrl {
  runQuery() {
     // Show the loading indicator
     this.loading = true;
+    this.listConfig = this.listConfig || {};
 
     // Create an object for this query
     let queryConfig = {
-      type: this.listConfig.type,
+      type: this.listConfig.type || undefined,
       filters: this.listConfig.filters || {}
     };
 
