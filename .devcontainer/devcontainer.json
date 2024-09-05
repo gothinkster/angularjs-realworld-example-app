@@ -1,8 +1,14 @@
 {
-  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "name": "RealWorldExample",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
-    "version": "8"
+      "nodeGypDependencies": true,
+      "version": "lts/dubnium",
+      "nvmVersion": "latest"
     }
-  }
+  },
+  "postStartCommand": ". ${NVM_DIR}/nvm.sh && nvm use lts/dubnium && npm install -g gulp@3"
 }
